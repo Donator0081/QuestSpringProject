@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "text": "high-level programming language",
+    "correct":false,
+    "questionsId": 1
+  },
+  {
+    "id": 2,
+    "text": "object-oriented (class-based) programming language",
+    "correct":false,
+    "questionsId": 1
+  },
+  {
+    "id": 3,
+    "text": "functional, imperative and reflective programming language",
+    "correct":false,
+    "questionsId": 1
+  },
+  {
+    "id": 4,
+    "text": "All the above",
+    "correct":true,
+    "questionsId": 1
+  },
+  {
+    "id": 5,
+    "text": "Test( )",
+    "correct":false,
+    "questionsId": 2
+  },
+  {
+    "id": 6,
+    "text": "Test(void)",
+    "correct":false,
+    "questionsId": 2
+  },
+  {
+    "id": 7,
+    "text": "public Test( )",
+    "correct":true,
+    "questionsId": 2
+  },
+  {
+    "id": 8,
+    "text": "public Test(void)",
+    "correct":false,
+    "questionsId": 2
+  },
+  {
+    "id": 9,
+    "text": "public",
+    "correct":false,
+    "questionsId": 3
+  },
+  {
+    "id": 10,
+    "text": "abstract",
+    "correct":false,
+    "questionsId": 3
+  },
+  {
+    "id": 11,
+    "text": "protected",
+    "correct":false,
+    "questionsId": 3
+  },
+  {
+    "id": 12,
+    "text": "default access",
+    "correct":true,
+    "questionsId": 3
+  },
+  {
+    "id": 13,
+    "text": "run();",
+    "correct":true,
+    "questionsId": 4
+  },
+  {
+    "id": 14,
+    "text": "start();",
+    "correct":false,
+    "questionsId": 4
+  },
+  {
+    "id": 15,
+    "text": "stop();",
+    "correct":false,
+    "questionsId": 4
+  },
+  {
+    "id": 16,
+    "text": "main();",
+    "correct":false,
+    "questionsId": 4
+  },
+  {
+    "id": 17,
+    "text": "interface",
+    "correct":true,
+    "questionsId": 5
+  },
+  {
+    "id": 18,
+    "text": "string",
+    "correct":false,
+    "questionsId": 5
+  },
+  {
+    "id": 19,
+    "text": "Float",
+    "correct":false,
+    "questionsId": 5
+  },
+  {
+    "id": 20,
+    "text": "unsigned",
+    "correct":false,
+    "questionsId": 5
+  }
+]

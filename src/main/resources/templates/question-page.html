@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Question</title>
+</head>
+<body>
+<div content="container">
+    <form action="#" th:action="@{{id} (id = ${nextQuestionNumber})}" method="get">
+        <h3 th:text="*{question.text}"/>
+        <p th:each="answer:${question.getAnswers()}">
+            <input type="radio"
+                   th:name="chosenAnswer"
+                   th:value="${answer.text}"
+                   th:text="${answer.text}"
+                   th:checked="${answer.text}">
+        </p>
+        <button type="submit">Confirm</button>
+    </form>
+</div>
+</body>
+</html>

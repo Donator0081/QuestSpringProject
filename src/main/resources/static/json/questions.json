@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "text": "Java is a",
+    "answerIds": [1,2,3,4]
+  },
+  {
+    "id": 2,
+    "text": "What is the prototype of the default constructor?",
+    "answerIds": [5,6,7,8]
+  },
+  {
+    "id": 3,
+    "text": "What is the most restrictive access modifier that will allow members\nof one class to have access to members of another class in the same package?",
+    "answerIds": [9,10,11,12]
+  },
+  {
+    "id": 4,
+    "text": "Which will contain the body of the thread?",
+    "answerIds": [13,14,15,16]
+  },
+  {
+    "id": 5,
+    "text": "Which is a valid keyword in java?",
+    "answerIds": [17,18,19,20]
+  }
+]
