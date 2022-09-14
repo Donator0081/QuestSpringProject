@@ -2,8 +2,6 @@ package com.example.quest_spring_project.controllers;
 
 import com.example.quest_spring_project.entities.Question;
 import com.example.quest_spring_project.services.QuestionsService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("quest")
+@RequestMapping("/quest")
 public class RestQuestionsController {
 
     private final QuestionsService service;
-
-    Logger logger = LoggerFactory.getLogger(getClass().getName());
 
     public RestQuestionsController(QuestionsService service) {
         this.service = service;
@@ -28,7 +24,7 @@ public class RestQuestionsController {
         return "quest-start";
     }
 
-    @GetMapping("start-quiz")
+    @GetMapping("/start-quiz")
     public String showQuestion(Model model) {
         int starterId = 1;
         Question question = service.getQuestionById(starterId);
