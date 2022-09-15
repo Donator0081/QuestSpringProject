@@ -5,8 +5,6 @@ import com.example.quest_spring_project.dto.QuestionsDTO;
 import com.example.quest_spring_project.entities.Answer;
 import com.example.quest_spring_project.entities.Question;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -17,25 +15,22 @@ import java.util.List;
 @Component
 public class SourceLoader {
 
-    Logger logger = LoggerFactory.getLogger(getClass().getName());
     private String source;
     private Exception error;
-
     private int id;
-    private  List<Answer> answers;
-
+    private List<Answer> answers;
     private Answer correctAnswer;
+    private static final String PATH_TO_QUESTIONS_JSON = "src/main/resources/static/json/questions.json";
+    private static final String PATH_TO_ANSWERS_JSON = "src/main/resources/static/json/answers.json";
 
 
-    public void read(int id) {
+    public void setVariables(int id) {
         answers = new ArrayList<>();
         this.id = id;
         try {
             ObjectMapper mapper = new ObjectMapper();
-            QuestionsDTO[] questionsDTOS =
-                    mapper.readValue(new File("src/main/resources/static/json/questions.json"), QuestionsDTO[].class);
-            AnswersDTO[] answersDTOS =
-                    mapper.readValue(new File("src/main/resources/static/json/answers.json"), AnswersDTO[].class);
+            QuestionsDTO[] questionsDTOS = mapper.readValue(new File(PATH_TO_QUESTIONS_JSON), QuestionsDTO[].class);
+            AnswersDTO[] answersDTOS = mapper.readValue(new File(PATH_TO_ANSWERS_JSON), AnswersDTO[].class);
             setSource(id, questionsDTOS);
             setAnswers(id, answersDTOS);
             setCorrectAnswer();
@@ -43,6 +38,7 @@ public class SourceLoader {
             error = e;
         }
     }
+
 
     private void setCorrectAnswer() {
         answers.forEach(item -> {
@@ -55,7 +51,7 @@ public class SourceLoader {
     private void setAnswers(int id, AnswersDTO[] answersDTOS) {
         for (AnswersDTO item : answersDTOS) {
             if (item.getQuestionsId() == id) {
-                answers.add(new Answer(item.getId(), item.getText(), item.isCorrect(),id));
+                answers.add(new Answer(item.getId(), item.getText(), item.isCorrect(), id));
             }
         }
     }
@@ -66,6 +62,17 @@ public class SourceLoader {
                 source = item.getText();
             }
         }
+    }
+
+    public int getQuantityOfQuestions() {
+        ObjectMapper mapper = new ObjectMapper();
+        QuestionsDTO[] questionsDTOS = new QuestionsDTO[0];
+        try {
+            questionsDTOS = mapper.readValue(new File(PATH_TO_QUESTIONS_JSON), QuestionsDTO[].class);
+        } catch (IOException e) {
+            error = e;
+        }
+        return questionsDTOS.length;
     }
 
     public boolean hasError() {

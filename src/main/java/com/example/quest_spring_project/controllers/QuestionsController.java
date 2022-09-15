@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/quest")
-public class RestQuestionsController {
+@RequestMapping("quest")
+public class QuestionsController {
 
     private final QuestionsService service;
 
-    public RestQuestionsController(QuestionsService service) {
+    public QuestionsController(QuestionsService service) {
         this.service = service;
     }
 
-    @GetMapping("/start")
+    @GetMapping("start")
     public String showQuestStart() {
         return "quest-start";
     }
 
-    @GetMapping("/start-quiz")
+    @GetMapping("start-quiz")
     public String showQuestion(Model model) {
         int starterId = 1;
         Question question = service.getQuestionById(starterId);
@@ -49,12 +49,12 @@ public class RestQuestionsController {
         }
     }
 
-    @GetMapping("/fail")
+    @GetMapping("fail")
     public String showFailPage() {
         return "fail-page";
     }
 
-    @GetMapping("/happy-end")
+    @GetMapping("happy-end")
     public String showHappyEndingPage() {
         return "happy-ending-page";
     }

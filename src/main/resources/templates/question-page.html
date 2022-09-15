@@ -7,9 +7,10 @@
 </head>
 <body>
 <div content="container">
-    <form action="#" th:action="@{{id} (id = ${nextQuestionNumber})}" method="get">
-        <h3 th:text="*{question.text}"/>
-        <p th:each="answer:${question.getAnswers()}">
+    <form action="#" th:action="@{{id} (id = ${nextQuestionNumber})}" method="get"
+    th:object="${question}">
+        <h3 th:text="*{text}"></h3>
+        <p th:each="answer:*{getAnswers()}">
             <input type="radio"
                    th:name="chosenAnswer"
                    th:value="${answer.text}"
